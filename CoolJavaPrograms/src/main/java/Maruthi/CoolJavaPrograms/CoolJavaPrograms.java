@@ -491,45 +491,51 @@ public class CoolJavaPrograms
 	}
 
 	//Method to return a Palindrome string having N chars with K distinct characters.
+	//Lets say N = 4 and K = 2, Then the answer can be baab or abba or any thing which contains only 2 alphabetical characters.  
+	//The answer cannot be aaaa or bbbb as the palindrome string has only one character.
 	public static void generatePalindromHavingNCharsWithKDistinctChars (int N, int K) {
-		char letters[] = new char[K];
 		
-		System.out.print("List of characters to be used for building the palindrome string are: ");
-		for (int i=0; i < K; i++) {
-			letters[i] = (char) ('a'+i);
-			System.out.print(letters[i] + " ");
-		}
-		
-		int l, r, j;
-		
-		char Arr[] = new char[N];
-		
-		if (N % 2 == 0) {
-			l = N/2-1; 
-			r = N/2;
-			j = 0;
-		}	
-		else {
-			Arr[N/2] = letters[0];
-			l = N/2 - 1;
-			r = N/2 + 1;
-			j = 1;
-		}
-		
-		while(l >= 0 && r <= N) {
-			Arr[l] = letters[j];
-			Arr[r] = letters[j];
+		if(N >= (K*2)-1) {
+			char letters[] = new char[K];
 			
-			l--;
-			r++;
-			j++;
+			System.out.print("List of characters to be used for building the palindrome string are: ");
+			for (int i=0; i < K; i++) {
+				letters[i] = (char) ('a'+i);
+				System.out.print(letters[i] + " ");
+			}
 			
-			if (K > j) {}
-			else j=0;
+			int l, r, j;
+			
+			char Arr[] = new char[N];
+			
+			if (N % 2 == 0) {
+				l = N/2-1; 
+				r = N/2;
+				j = 0;
+			}	
+			else {
+				Arr[N/2] = letters[0];
+				l = N/2 - 1;
+				r = N/2 + 1;
+				j = 1;
+			}
+			
+			while(l >= 0 && r <= N) {
+				Arr[l] = letters[j];
+				Arr[r] = letters[j];
+				
+				l--;
+				r++;
+				j++;
+				
+				if (j>=K) j = 0;
+			}
+		
+			System.out.println();
+			System.out.println("Final palindrome string is: " + new String(Arr));
 		}
-	
-		System.out.println();
-		System.out.println("Final palindrome string is: " + new String(Arr));
+		else 
+			System.out.println("We cannot form a palindrome string of lenght "+N+" by using "+K+" Characters");
 	}
 	
 	//Method to find the highest sum of two numbers in the array whose sum of digits are also same
@@ -595,37 +601,37 @@ public class CoolJavaPrograms
 		l4.add(-1); l4.add(1); l4.add(1); l4.add(1); l4.add(1);
 
 		CoolJavaPrograms JP = new CoolJavaPrograms();
-//				 System.out.println(JP.reverseStringWithoutStringBuilderFunction("Hello World"));
-//				 System.out.println(JP.reverseStringUsingStringBuilderFunction("Hello World"));
-//				 JP.countWordsOfStringUsingHashmap("This is Hello World");
-//				 JP.primeNumberCheck(32987);
-//				 JP.palindromeCheck("99999999");
-//				 JP.palindromeCheckForNumber(956778898);
-//				 JP.fibonacciSeries(10);
-//				 JP.duplicateCharsInString("HelloWorldIsHere");
-//				 JP.secondHighestNumInArray(arr);
-//				 JP.sortArrayInAscendingOrder(arr);
-//				 JP.sortArrayInDescendingOrder(arr);
-//				 JP.armstrongNumberCheck(468);
-//				 JP.removeIntArrayDuplicates(arr2);
-//				 JP.reverseNumber(1061960);
-//				 JP.getFirstNonRepeatedCharOfString("abcdefghijabcdgh");
-//				 JP.getFirstNonRepeatedCharOfString("HelloWorldHelloWorld");
-//				 JP.thirdLargestElementInArray(arr3);
-//				 JP.phoneNumberFormatter("9945293684");
-//				 JP.reverseLinkedList(l);
-//				 JP.repeatCharsWithGivenNumbers("J1a2v3a4");
-//				 JP.rotateArrayByK(arr, 3);
-//				 JP.versionCheck("2.15.178", "1.5.45.00");
-//				 JP.convertRepeatCharsToNumbers("AAAABBCCCAABCD");
-//				 System.out.println(JP.amazonSearchSuggestions(l2, "mouse"));
-//				 JP.printSubarraysUsingIterations(arr);
-//				 JP.printSubarraysUsingRecursion(arr,0,0);
-//				 JP.productOfListElements(l4);
-//				 JP.printMaxSubArrayLengthWhoseProductIsOne(arr4);
+//		System.out.println(JP.reverseStringWithoutStringBuilderFunction("Hello World"));
+//		System.out.println(JP.reverseStringUsingStringBuilderFunction("Hello World"));
+//		JP.countWordsOfStringUsingHashmap("This is Hello World");
+//		JP.primeNumberCheck(32987);
+//		JP.palindromeCheck("99999999");
+//		JP.palindromeCheckForNumber(956778898);
+//		JP.fibonacciSeries(10);
+//		JP.duplicateCharsInString("HelloWorldIsHere");
+//		JP.secondHighestNumInArray(arr);
+//		JP.sortArrayInAscendingOrder(arr);
+//		JP.sortArrayInDescendingOrder(arr);
+//		JP.armstrongNumberCheck(468);
+//		JP.removeIntArrayDuplicates(arr2);
+//		JP.reverseNumber(1061960);
+//		JP.getFirstNonRepeatedCharOfString("abcdefghijabcdgh");
+//		JP.getFirstNonRepeatedCharOfString("HelloWorldHelloWorld");
+//		JP.thirdLargestElementInArray(arr3);
+//		JP.phoneNumberFormatter("9945293684");
+//		JP.reverseLinkedList(l);
+//		JP.repeatCharsWithGivenNumbers("J1a2v3a4");
+//		JP.rotateArrayByK(arr, 3);
+//		JP.versionCheck("2.15.178", "1.5.45.00");
+//		JP.convertRepeatCharsToNumbers("AAAABBCCCAABCD");
+//		System.out.println(JP.amazonSearchSuggestions(l2, "mouse"));
+//		JP.printSubarraysUsingIterations(arr);
+//		JP.printSubarraysUsingRecursion(arr,0,0);
+//		JP.productOfListElements(l4);
+//		JP.printMaxSubArrayLengthWhoseProductIsOne(arr4);
 //		JP.iterateOverMap();
 //		System.out.println(JP.smallestPositiveInteger(arr5));
-//		JP.generatePalindromHavingNCharsWithKDistinctChars(7, 2);
-//		JP.highestSumWithHighestDigitsSum(arr6);
+//		CoolJavaPrograms.generatePalindromHavingNCharsWithKDistinctChars(4, 2);
+//		CoolJavaPrograms.highestSumWithHighestDigitsSum(arr6);
 	}
 }
