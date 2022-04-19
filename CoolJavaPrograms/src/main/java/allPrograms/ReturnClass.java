@@ -1,4 +1,4 @@
-package Maruthi.CoolJavaPrograms;
+package allPrograms;
 
 public class ReturnClass {
 	 int mul; // To store multiplication
@@ -14,8 +14,7 @@ public class ReturnClass {
 }
 
 class Test {
-    public static ReturnClass getMultDivAdd(int a, int b)
-    {
+    public static ReturnClass getMultDivAdd(int a, int b){
         return new ReturnClass(a * b, (double)a / b, (a + b));
     }
   
